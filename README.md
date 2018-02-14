@@ -2,6 +2,13 @@
 
 Express 勉強用の Sample Application。
 
+## 利用するフレームワークやプラットフォームへの公式ページリンク
+
+- Express
+    - http://expressjs.com/
+- Node.js
+    - https://nodejs.org/
+
 # 使い方
 
 動作させるためには、事前に Node.js をインストールしておく必要がある。
