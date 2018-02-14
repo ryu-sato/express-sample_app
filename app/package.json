@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "Sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryu-sato/express-sample_app.git"
+  },
+  "author": "Ryu Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryu-sato/express-sample_app/issues"
+  },
+  "homepage": "https://github.com/ryu-sato/express-sample_app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
