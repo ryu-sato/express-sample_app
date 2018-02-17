@@ -25,6 +25,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+app.get('/test',
+  function(req, res, next) {
+    console.log('Time:', Date.now());
+    if(Date.now() > 1518884643822)
+      next('route');
+    else
+      next();
+  },
+  function(req, res, next) {
+    res.send('Hello world.');
+});
+
+app.get('/test', function(req, res, next){
+  res.send('Hello special world.');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
