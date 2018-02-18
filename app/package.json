@@ -11,7 +11,10 @@
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "morgan": "~1.9.0",
+    "mysql2": "^1.5.2",
     "pug": "2.0.0-beta11",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0",
     "serve-favicon": "~2.4.5"
   }
 }
