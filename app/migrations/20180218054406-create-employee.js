@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('employees', {
+    return queryInterface.createTable('Employee', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,7 +15,7 @@ module.exports = {
       department: {
         type: Sequelize.STRING
       },
-      sex: {
+      gender: {
         allowNull: false,
         defaultValue: 'other',
         type: Sequelize.ENUM('male', 'female', 'other')
@@ -28,7 +28,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      pay: {
+      payment: {
         defaultValue: 0,
         type: Sequelize.BIGINT
       },
@@ -38,15 +38,17 @@ module.exports = {
       },
       created_at: {
         allowNull: false,
+        defaultValue: Sequelize.literal('NOW()'), // cf. https://github.com/sequelize/sequelize/issues/5561
         type: Sequelize.DATE
       },
       updated_at: {
         allowNull: false,
+        defaultValue: Sequelize.literal('NOW()'), // cf. https://github.com/sequelize/sequelize/issues/5561
         type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('employees');
+    return queryInterface.dropTable('Employee');
   }
 };

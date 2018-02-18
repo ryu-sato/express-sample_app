@@ -1,9 +1,9 @@
-var Employee = require('../models/employee')(sequelize, DataTypes);
+var models = require('../models');
 
-exports.index = function(err, req, res, next) {
-  var employees = Employee.all();
-  if (err) next(err);
-  res.render('views/employee/index', {employees : employees});
+exports.index = function(req, res, next) {
+  models.Employee.all().then(employees => {
+    res.render('employee/index', {employees : employees});
+  });
 };
 
 exports.generate = function(req, res, next) {
