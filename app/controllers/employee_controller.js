@@ -22,7 +22,6 @@ exports.show = function(req, res, next) {
  * show form to create employee
  */
 exports.new = function(req, res, next) {
-  // [TODO] FIX ME
   res.render('employee/new');
 };
 
@@ -72,7 +71,6 @@ exports.update = function(req, res, next) {
  */
 exports.destroy = function(req, res, next) {
   models.Employee.destroy(req.params.id).then(employee => {
-    // [TODO] FIX ME
-    res.redirect(302, "/");
+    res.redirect(302, "/employees");
   });
 };
