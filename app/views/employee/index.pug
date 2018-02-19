@@ -1,22 +1,16 @@
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    h1= "Employees"
+extends ../layout
+
+block content
+  h1= "Employees"
+  table
+    tr
+      th "ID"
+      th "Name"
+      th "Department"
+      th "Gender"
     each employee in employees
-      dl
-        dt "name"
-        dd #{employee.name}
-        dt "department"
-        dd #{employee.department}
-        dt "gender"
-        dd #{employee.gender}
-        dt "birth"
-        dd #{employee.birth}
-        dt "joined_date"
-        dd #{employee.joined_date}
-        dt "payment"
-        dd #{employee.payment}
-        dt "note"
-        dd #{employee.note}
+      tr
+        td= employee.id
+        td= employee.name
+        td= employee.department
+        td= employee.gender
