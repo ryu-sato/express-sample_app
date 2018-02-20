@@ -17,6 +17,6 @@ Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js
 ```cmd
 > git clone https://github.com/ryu-sato/express-sample_app.git
 > cd express-sample_app
-> npm install
+> yarn
 > set DEBUG=app:* & npm start
 ```
