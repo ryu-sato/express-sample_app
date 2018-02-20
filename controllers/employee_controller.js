@@ -5,7 +5,7 @@ var models = require('../models');
  */
 exports.index = function(req, res, next) {
   models.Employee.all().then(employees => {
-    res.render('employee/index', {employees : employees});
+    res.render('employee/index', {title: 'Employees', employees: employees});
   });
 };
 
@@ -14,7 +14,7 @@ exports.index = function(req, res, next) {
  */
 exports.show = function(req, res, next) {
   models.Employee.findById(req.params.id).then(employee => {
-    res.render('employee/show', {employee : employee});
+    res.render('employee/show', {title: 'Employee', employee: employee});
   });
 };
 
@@ -47,7 +47,7 @@ exports.create = function(req, res, next) {
  */
 exports.edit = function(req, res, next) {
   models.Employee.findById(req.params.id).then(employee => {
-    res.render('employee/edit', {employee : employee});
+    res.render('employee/edit', {title: 'Employees - Edit', employee: employee});
   });
 };
 

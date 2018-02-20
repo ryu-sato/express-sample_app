@@ -20,3 +20,10 @@ Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js
 > yarn
 > set DEBUG=app:* & npm start
 ```
+
+# TODO
+
+- [ ] i18n
+- [ ] validation
+- [x] React結合
+- [ ] bootstrap利用
