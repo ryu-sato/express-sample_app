@@ -8,6 +8,10 @@ Express 勉強用の Sample Application。
     - http://expressjs.com/
 - Node.js
     - https://nodejs.org/
+- Sequelize
+    - http://docs.sequelizejs.com/
+- React
+    - https://reactjs.org/
 
 # 使い方
 
