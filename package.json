@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "server": "node server.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
