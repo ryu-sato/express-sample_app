@@ -24,6 +24,13 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
+// CORSを許可する
+server.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 server.use('/', index);
 server.use('/employees', employees);
 server.use('/_api/', api);
