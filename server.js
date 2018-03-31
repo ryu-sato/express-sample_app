@@ -11,11 +11,6 @@ var api = require('./routes/api');
 
 var server = express();
 
-// view engine setup
-server.set('views', path.join(__dirname, 'views'));
-server.set('view engine', 'jsx');
-server.engine('jsx', require('express-react-views').createEngine());
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 server.use(logger('dev'));
@@ -25,6 +20,7 @@ server.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 // CORSを許可する
+//   see. https://developer.mozilla.org/ja/docs/Web/HTTP/HTTP_access_control
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
