@@ -14,11 +14,13 @@ class ExpressSampleApp extends React.Component {
         <div>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/employee">employee</Link></li>
+            <li><Link to="/employees">employee</Link></li>
           </ul>
           <Route exact path="/" component={Home} />
-          <Route exact path="/employee" component={EmployeeList} />
-          <Route path="/employee/:id" component={EmployeeDetail} />
+          <Route exact path="/employees" component={EmployeeList} />
+          <Route path="/employees/:id" component={EmployeeDetail} />
+          <Route path="/employees/new" component={EmployeeNew} />
+          <Route path="/employees/:id/edit" component={EmployeeEdit} />
         </div>
       </BrowserRouter>
     );
