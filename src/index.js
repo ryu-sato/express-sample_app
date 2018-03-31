@@ -1,5 +1,36 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var rrd = require('react-router-dom');
+var BrowserRouter = rrd.BrowserRouter;
+var Route = rrd.Route;
+var Link = rrd.Link;
+
+class ExpressSampleApp extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/employee">employee</Link></li>
+          </ul>
+          <Route path="/" component={Home} />
+          <Route path="/employee" component={EmployeeList} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Home</h2>
+      </div>
+    );
+  }
+}
 
 // Employee一覧レンダリング用コンポーネント
 class EmployeeList extends React.Component {
@@ -13,7 +44,7 @@ class EmployeeList extends React.Component {
   }
 
   loadEmployeeList() {
-    return fetch(this.props.url)
+    return fetch("/_api/employee")
       .then((response) => response.json())
       .then((responseJson) =>
         this.setState({
@@ -43,6 +74,6 @@ class EmployeeList extends React.Component {
 // DOMのレンダリング処理
 //   see. https://reactjs.org/docs/react-dom.html#render
 ReactDOM.render(
-  <EmployeeList url="/_api/employee" />, // EmployeeListコンポーネントをレンダリングする
+  <ExpressSampleApp />, // EmployeeListコンポーネントをレンダリングする
   document.getElementById('root')                             // id=root要素に対してレンダリングする
 );
