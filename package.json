@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "server": "node server.js"
+    "front:dev:watch": "react-scripts start",
+    "front:build": "react-scripts build",
+    "front:start": "serve -s build",
+    "back:start": "node server.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -21,6 +23,7 @@
     "react-scripts": "^1.1.1",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
+    "serve": "^6.5.3",
     "serve-favicon": "~2.4.5"
   }
 }
