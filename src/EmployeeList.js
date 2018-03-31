@@ -34,13 +34,13 @@ class EmployeeList extends React.Component {
     const employee_list = this.state.employees.map((employee) =>
       <tr key={`EmployeeList-${employee.id}`}>
         <td>
-          <Link to={`/employee/${employee.id}`}>{employee.id}</Link>
+          <Link to={`/employees/${employee.id}`}>{employee.id}</Link>
         </td>
         <td>{employee.name}</td>
         <td>{employee.department}</td>
         <td>{employee.gender}</td>
         <td>
-          <Link to={`/employee/${employee.id}/edit`}><button>Edit</button></Link>
+          <Link to={`/employees/${employee.id}/edit`}><button>Edit</button></Link>
         </td>
       </tr>
     );

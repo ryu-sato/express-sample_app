@@ -6,6 +6,8 @@ var Route = rrd.Route;
 var Link = rrd.Link;
 var EmployeeList = require('./EmployeeList');
 var EmployeeDetail = require('./EmployeeDetail');
+var EmployeeNew = require('./EmployeeNew');
+var EmployeeEdit = require('./EmployeeEdit');
 
 class ExpressSampleApp extends React.Component {
   render() {
@@ -18,9 +20,10 @@ class ExpressSampleApp extends React.Component {
           </ul>
           <Route exact path="/" component={Home} />
           <Route exact path="/employees" component={EmployeeList} />
-          <Route path="/employees/:id" component={EmployeeDetail} />
-          <Route path="/employees/new" component={EmployeeNew} />
-          <Route path="/employees/:id/edit" component={EmployeeEdit} />
+          <Route exact path='/employees/:id([0-9]+)' component={EmployeeDetail} />
+          <Route exact path="/employees/new" component={EmployeeNew} />
+          <Route exact path="/employees/:id([0-9]+)/edit" component={EmployeeEdit} />
+          <Link to="/employees/new">New</Link>
         </div>
       </BrowserRouter>
     );
