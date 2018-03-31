@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+// Employee一覧レンダリング用コンポーネント
 class EmployeeList extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +39,10 @@ class EmployeeList extends React.Component {
   }
 }
 
-// ========================================
 
+// DOMのレンダリング処理
+//   see. https://reactjs.org/docs/react-dom.html#render
 ReactDOM.render(
-  <EmployeeList url="http://localhost:3001/_api/employee" />,
-  document.getElementById('root')
+  <EmployeeList url="http://localhost:3001/_api/employee" />, // EmployeeListコンポーネントをレンダリングする
+  document.getElementById('root')                             // id=root要素に対してレンダリングする
 );
