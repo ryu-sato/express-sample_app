@@ -16,9 +16,8 @@ server.use(logger('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
 
-// CORSを許可する
+// allow CORS
 //   see. https://developer.mozilla.org/ja/docs/Web/HTTP/HTTP_access_control
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -26,8 +25,13 @@ server.use(function(req, res, next) {
   next();
 });
 
-server.use('/', index);
 server.use('/_api/', api);
+
+// correspond Express and React
+server.use(express.static(path.join(__dirname, 'build')));
+server.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {
@@ -51,9 +55,9 @@ server.get('*', (req, res) => {
   return handle(req, res);
 })
 
-server.listen(3001, (err) => {
+server.listen(3000, (err) => {
   if (err) throw err
-  console.log('> Ready on http://localhost:3001 as backend')
+  console.log('> Ready on http://localhost:3000 as backend')
 })
 
 module.exports = server;

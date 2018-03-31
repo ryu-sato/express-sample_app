@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "front:dev:watch": "react-scripts start",
-    "front:build": "react-scripts build",
-    "front:start": "serve -s build",
-    "back:start": "node server.js"
+    "build": "react-scripts build",
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -20,10 +18,10 @@
     "pug": "2.0.0-beta11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
-    "serve": "^6.5.3",
     "serve-favicon": "~2.4.5"
   }
 }

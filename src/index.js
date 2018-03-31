@@ -9,10 +9,10 @@ class EmployeeList extends React.Component {
       employees: [],
     };
 
-    this.loadAjax = this.loadAjax.bind(this);
+    this.loadEmployeeList = this.loadEmployeeList.bind(this);
   }
 
-  loadAjax() {
+  loadEmployeeList() {
     return fetch(this.props.url)
       .then((response) => response.json())
       .then((responseJson) =>
@@ -26,7 +26,7 @@ class EmployeeList extends React.Component {
   }
 
   componentWillMount() {
-    this.loadAjax();
+    this.loadEmployeeList();
   }
 
   render() {
@@ -43,6 +43,6 @@ class EmployeeList extends React.Component {
 // DOMのレンダリング処理
 //   see. https://reactjs.org/docs/react-dom.html#render
 ReactDOM.render(
-  <EmployeeList url="http://localhost:3001/_api/employee" />, // EmployeeListコンポーネントをレンダリングする
+  <EmployeeList url="/_api/employee" />, // EmployeeListコンポーネントをレンダリングする
   document.getElementById('root')                             // id=root要素に対してレンダリングする
 );
