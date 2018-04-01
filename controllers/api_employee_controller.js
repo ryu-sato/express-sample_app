@@ -30,7 +30,6 @@ exports.create = function(req, res, next) {
   models.Employee.create(
     new_values
   ).then(new_employee => {
-    // [TODO] 作成した旨をメッセージ表示する
     res.redirect(302, '/employees');
   });
 };
@@ -39,6 +38,7 @@ exports.create = function(req, res, next) {
  * update employee
  */
 exports.update = function(req, res, next) {
+  console.log('exports.update is executed');
   models.Employee.findById(req.params.id).then(employee => {
     var properties = ["name", "department", "gender", "birth", "joined_date", "payment", "note"];
     var update_values = {};
@@ -54,7 +54,10 @@ exports.update = function(req, res, next) {
  * destroy employee
  */
 exports.destroy = function(req, res, next) {
-  models.Employee.destroy(req.params.id).then(employee => {
+  models.Employee.destroy
+  ({
+    where: { id: req.params.id }
+  }).then(employee => {
     res.redirect(302, "/employees");
   });
 };

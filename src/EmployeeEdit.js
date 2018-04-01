@@ -41,9 +41,9 @@ class EmployeeEdit extends React.Component {
     const employee = this.state.employee || {};
     const id = (employee.id ? <div>ID: {employee.id}</div> : '');
     return (
-      <form action={'/_api/employees/' + employee.id} method='post'>
+      <form action={'/_api/employees/' + employee.id + '?_method=PUT'} method='post'>
         { /* cf. https://qiita.com/ozhaan/items/c1e394226c1d5acb7f0e */ }
-        <input name="_method" type="hidden" value="put" readOnly />
+        <input name="_method" type="hidden" value="PUT" readOnly />
         {id}
         <div>Name: <input type='text' name='name' value={employee.name} placeholder="Input Employee's Name" onChange={this.onChangeField} /></div>
         <div>Department: <input type='text' name='department' value={employee.department} placeholder="" onChange={this.onChangeField} /></div>

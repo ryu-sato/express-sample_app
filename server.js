@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 var index = require('./routes/index');
 var api = require('./routes/api');
@@ -16,6 +17,9 @@ server.use(logger('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
+
+// override HTTP method to using CRUD
+server.use(methodOverride('_method'));
 
 // allow CORS
 //   see. https://developer.mozilla.org/ja/docs/Web/HTTP/HTTP_access_control
