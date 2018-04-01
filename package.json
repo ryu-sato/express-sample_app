@@ -3,19 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "build": "react-scripts build",
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
+    "create-react-app": "^1.5.2",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "express-react-views": "^0.10.5",
+    "method-override": "^2.3.10",
     "morgan": "~1.9.0",
     "mysql2": "^1.5.2",
     "pug": "2.0.0-beta11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.1",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
     "serve-favicon": "~2.4.5"
