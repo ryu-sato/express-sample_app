@@ -41,6 +41,11 @@ class EmployeeList extends React.Component {
         <td>{employee.gender}</td>
         <td>
           <Link to={`/employees/${employee.id}/edit`}><button>Edit</button></Link>
+          <form action={'/_api/employees/' + employee.id} method='post'>
+            { /* cf. https://qiita.com/ozhaan/items/c1e394226c1d5acb7f0e */ }
+            <input name="_method" type="hidden" value="delete" readOnly />
+            <input type="submit" value="Delete" />
+          </form>
         </td>
       </tr>
     );
