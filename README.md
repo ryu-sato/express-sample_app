@@ -22,7 +22,8 @@ Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js
 > git clone https://github.com/ryu-sato/express-sample_app.git
 > cd express-sample_app
 > yarn
-> set DEBUG=app:* & npm start
+> npm run build
+> npm run start
 ```
 
 # TODO
