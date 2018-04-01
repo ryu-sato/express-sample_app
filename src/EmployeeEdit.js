@@ -13,7 +13,7 @@ class EmployeeEdit extends React.Component {
   }
 
   loadEmployee() {
-    return fetch(`/_api/employee/${this.state.id}`)
+    return fetch(`/_api/employees/${this.state.id}`)
       .then((response) => response.json())
       .then((responseJson) =>
         this.setState({

@@ -15,7 +15,7 @@ class EmployeeNew extends React.Component {
     const employee = this.state.employee || {};
     const id = (employee.id ? <div>ID: {employee.id}</div> : '');
     return (
-      <form action={'/employees/' + employee.id} method='post'>
+      <form action={'/_edit/employees/' + employee.id} method='post'>
         { /* cf. https://qiita.com/ozhaan/items/c1e394226c1d5acb7f0e */ }
         <input name="_method" type="hidden" value="put" readOnly />
         {id}

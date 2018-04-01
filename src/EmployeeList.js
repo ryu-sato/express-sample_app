@@ -14,7 +14,7 @@ class EmployeeList extends React.Component {
   }
 
   loadEmployeeList() {
-    return fetch("/_api/employee")
+    return fetch("/_api/employees")
       .then((response) => response.json())
       .then((responseJson) =>
         this.setState({

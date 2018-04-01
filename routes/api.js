@@ -3,10 +3,10 @@ var router = express.Router();
 var controllers = require('../controllers');
 
 /* API of controling employees */
-router.get('/employee/', controllers.api_employee_controller.index);
-router.get('/employee/:id(\\d+)', controllers.api_employee_controller.show);
-router.post('/employee/', controllers.api_employee_controller.create);
-router.post('/employee/:id(\\d+)', controllers.api_employee_controller.update);
-router.delete('/employee/:id(\\d+)', controllers.api_employee_controller.destroy);
+router.get('/employees/', controllers.api_employee_controller.index);
+router.get('/employees/:id(\\d+)', controllers.api_employee_controller.show);
+router.post('/employees/', controllers.api_employee_controller.create);
+router.post('/employees/:id(\\d+)', controllers.api_employee_controller.update);
+router.delete('/employees/:id(\\d+)', controllers.api_employee_controller.destroy);
 
 module.exports = router;
