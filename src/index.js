@@ -5,9 +5,9 @@ var BrowserRouter = rrd.BrowserRouter;
 var Route = rrd.Route;
 var Link = rrd.Link;
 var EmployeeList = require('./employee/employee_list');
-var EmployeeDetail = require('./employee_detail');
-var EmployeeNew = require('./employee_new');
-var EmployeeEdit = require('./employee_edit');
+var EmployeeDetail = require('./employee/employee_detail');
+var EmployeeNew = require('./employee/employee_new');
+var EmployeeEdit = require('./employee/employee_edit');
 
 class ExpressSampleApp extends React.Component {
   render() {
