@@ -4,10 +4,10 @@ var rrd = require('react-router-dom');
 var BrowserRouter = rrd.BrowserRouter;
 var Route = rrd.Route;
 var Link = rrd.Link;
-var EmployeeList = require('./EmployeeList');
-var EmployeeDetail = require('./EmployeeDetail');
-var EmployeeNew = require('./EmployeeNew');
-var EmployeeEdit = require('./EmployeeEdit');
+var EmployeeList = require('./employee/employee_list');
+var EmployeeDetail = require('./employee/employee_detail');
+var EmployeeNew = require('./employee/employee_new');
+var EmployeeEdit = require('./employee/employee_edit');
 
 class ExpressSampleApp extends React.Component {
   render() {
