@@ -2,6 +2,8 @@
   "name": "app",
   "version": "0.0.0",
   "private": true,
+  "description": "Express sample application.",
+  "main": "server.js",
   "scripts": {
     "build": "react-scripts build",
     "start": "node server.js"
