@@ -5,6 +5,7 @@
   "description": "Express sample application.",
   "main": "server.js",
   "scripts": {
+    "postinstall": "npm run build",
     "build": "react-scripts build",
     "start": "node server.js"
   },
