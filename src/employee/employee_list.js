@@ -1,3 +1,10 @@
+require('bootstrap/dist/css/bootstrap.min.css');
+var Table = require('react-bootstrap/lib/Table');
+var Button = require('react-bootstrap/lib/Button');
+var FormGroup = require('react-bootstrap/lib/FormGroup');
+var FormControl = require('react-bootstrap/lib/FormControl');
+var ControlLabel = require('react-bootstrap/lib/ControlLabel');
+
 var React = require('react');
 var rrd = require('react-router-dom');
 var Link = rrd.Link;
@@ -40,19 +47,19 @@ class EmployeeList extends React.Component {
         <td>{employee.department}</td>
         <td>{employee.gender}</td>
         <td>
-          <Link to={`/employees/${employee.id}/edit`}><button>Edit</button></Link>
           <form action={'/_api/employees/' + employee.id + '?_method=DELETE'} method='post'>
-            { /* cf. https://qiita.com/ozhaan/items/c1e394226c1d5acb7f0e */ }
-            <input name="_method" type="hidden" value="DELETE" readOnly />
-            <input name="id" type="hidden" value={employee.id} readOnly />
-            <input type="submit" value="Delete" />
+            <FormGroup>
+              <Link to={`/employees/${employee.id}/edit`}><Button>Edit</Button></Link>
+              <FormControl name="id" type="hidden" value={employee.id} readOnly />
+              <Button bsStyle="danger" type="submit" value="Delete">Delete</Button>
+            </FormGroup>
           </form>
         </td>
       </tr>
     );
 
     return(
-      <table>
+      <Table responsive>
         <thead>
           <tr>
             <th>ID</th>
@@ -65,7 +72,7 @@ class EmployeeList extends React.Component {
         <tbody>
           {employee_list}
         </tbody>
-      </table>
+      </Table>
     );
   }
 }
