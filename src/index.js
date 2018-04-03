@@ -1,3 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from 'react-bootstrap/lib/Nav';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import NavItem from 'react-bootstrap/lib/NavItem';
+import Button from 'react-bootstrap/lib/Button';
+import Grid from 'react-bootstrap/lib/Grid';
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 var rrd = require('react-router-dom');
@@ -13,18 +20,27 @@ class ExpressSampleApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/employees">employee</Link></li>
-          </ul>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/employees" component={EmployeeList} />
-          <Route exact path='/employees/:id([0-9]+)' component={EmployeeDetail} />
-          <Route exact path="/employees/new" component={EmployeeNew} />
-          <Route exact path="/employees/:id([0-9]+)/edit" component={EmployeeEdit} />
-          <Link to="/employees/new">New</Link>
-        </div>
+        <span>
+          <Navbar>
+            <Navbar.Header>
+              <Navbar.Brand>
+                ExpressSampleApp
+              </Navbar.Brand>
+            </Navbar.Header>
+            <Nav>
+              <NavItem><Link to="/">Home</Link></NavItem>
+              <NavItem><Link to="/employees">employee</Link></NavItem>
+            </Nav>
+          </Navbar>
+          <Grid>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/employees" component={EmployeeList} />
+            <Route exact path='/employees/:id([0-9]+)' component={EmployeeDetail} />
+            <Route exact path="/employees/new" component={EmployeeNew} />
+            <Route exact path="/employees/:id([0-9]+)/edit" component={EmployeeEdit} />
+            <Link to="/employees/new">New</Link>
+          </Grid>
+        </span>
       </BrowserRouter>
     );
   }
