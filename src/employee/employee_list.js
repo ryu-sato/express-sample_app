@@ -17,6 +17,7 @@ class EmployeeList extends React.Component {
     };
 
     this.loadEmployeeList = this.loadEmployeeList.bind(this);
+    this.handleDeleteButton = this.handleDeleteButton.bind(this);
   }
 
   loadEmployeeList() {
@@ -30,6 +31,17 @@ class EmployeeList extends React.Component {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  handleDeleteButton(employee_id) {
+    return fetch(`/_api/employees/${employee_id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      var index = this.state.employees.find(e => e.id == employee_id);
+      var newEmployees = this.state.employees;
+      newEmployees.splice(index, 1);
+      this.setState({ employees: newEmployees });
+    });
   }
 
   componentWillMount() {
@@ -46,13 +58,8 @@ class EmployeeList extends React.Component {
         <td>{employee.department}</td>
         <td>{employee.gender}</td>
         <td>
-          <form action={'/_api/employees/' + employee.id + '?_method=DELETE'} method='post'>
-            <FormGroup>
-              <Link to={`/employees/${employee.id}/edit`}><Button>Edit</Button></Link>
-              <FormControl name="id" type="hidden" value={employee.id} readOnly />
-              <Button bsStyle="danger" type="submit" value="Delete">Delete</Button>
-            </FormGroup>
-          </form>
+          <Link to={`/employees/${employee.id}/edit`}><Button>Edit</Button></Link>
+          <Button bsStyle="danger" onClick={() => this.handleDeleteButton(employee.id)}>Delete</Button>
         </td>
       </tr>
     );
