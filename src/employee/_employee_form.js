@@ -1,12 +1,25 @@
 var React = require('react');
 
+var FormGroup = require('react-bootstrap/lib/FormGroup');
+var ControlLabel = require('react-bootstrap/lib/ControlLabel');
+var FormControl = require('react-bootstrap/lib/FormControl');
+var HelpBlock = require('react-bootstrap/lib/HelpBlock');
+var Radio = require('react-bootstrap/lib/Radio');
+var Button = require('react-bootstrap/lib/Button');
+
 class EmployeeForm extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
+    function FieldGroup({ id, label, help, ...props }) {
+      return (
+        <FormGroup controlId={id}>
+          <ControlLabel>{label}</ControlLabel>
+          <FormControl {...props} />
+          {help && <HelpBlock>{help}</HelpBlock>}
+        </FormGroup>
+      );
+    }
+
     const employee = this.props.employee || {};
     const id = (employee.id ? <div>ID: {employee.id}</div> : '');
     const method = this.props.method || "POST";
@@ -15,19 +28,19 @@ class EmployeeForm extends React.Component {
     return(
       <form action={action} method='post'>
         {id}
-        <div>Name: <input type='text' name='name' value={employee.name} placeholder="Input Employee's Name" onChange={cb} /></div>
-        <div>Department: <input type='text' name='department' value={employee.department} placeholder="" onChange={cb} /></div>
-        <div>
-          Gender:
-            <input type='radio' name='gender' defaultValue='male' checked={employee.gender==="male"} onChange={cb} /> male
-            <input type='radio' name='gender' defaultValue='female' checked={employee.gender==="female"}  onChange={cb} /> female
-            <input type='radio' name='gender' defaultValue='other' checked={employee.gender!=="male"&&employee.gender!=="female"} onChange={cb} /> other
-        </div>
-        <div>Birthday: <input type='text' name='birth' value={employee.birth} placeholder="Input Employee's Birthday" onChange={cb} /></div>
-        <div>Joined Date: <input type='text' name='joined_date' value={employee.joined_date} placeholder="Input Employee's Joined Date" onChange={cb} /></div>
-        <div>Payment: <input type='text' name='payment' value={employee.payment} placeholder="Input Employee's Payment" onChange={cb} /></div>
-        <div>Note: <input type='text' name='note' value={employee.note} placeholder="Input Note" onChange={cb} /></div>
-        <div><input type='submit' value='Submit' readOnly /></div>
+        <FieldGroup id="name" type="text" label="Name" name='name' value={employee.name} placeholder="Input Employee's Name" onChange={cb} />
+        <FieldGroup id="Department" type="text" label="Department" name='department' value={employee.department} placeholder="" onChange={cb} />
+        <FormGroup controlId="Gender">
+          <ControlLabel>Gender</ControlLabel>
+          <Radio name="gender" inline defaultValue='male' checked={employee.gender==="male"} onChange={cb}>male</Radio>
+          <Radio name="gender" inline defaultValue='female' checked={employee.gender==="female"}  onChange={cb}>female</Radio>
+          <Radio name="gender" inline defaultValue='other' checked={employee.gender!=="male"&&employee.gender!=="female"} onChange={cb}>other</Radio>
+        </FormGroup>
+        <FieldGroup id="Birthday" type="text" label="Birthday" name='birth' value={employee.birth} placeholder="Input Employee's Birthday" onChange={cb} />
+        <FieldGroup id="Joined Date" type="text" label="Joined Date" name='joined_date' value={employee.joined_date} placeholder="Input Employee's Joined Date" onChange={cb} />
+        <FieldGroup id="Payment" type="text" label="Payment" name='payment' value={employee.payment} placeholder="Input Employee's Payment" onChange={cb} />
+        <FieldGroup id="Note" type="text" label="Note" name='note' value={employee.note} placeholder="Input Note" onChange={cb} />
+        <Button type="submit" value="Submit">Submit</Button>
       </form>
     );
   }

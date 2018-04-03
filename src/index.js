@@ -1,8 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Nav from 'react-bootstrap/lib/Nav';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Grid from 'react-bootstrap/lib/Grid';
+require('bootstrap/dist/css/bootstrap.css');
+var Nav = require('react-bootstrap/lib/Nav');
+var Navbar = require('react-bootstrap/lib/Navbar');
+var NavItem = require('react-bootstrap/lib/NavItem');
+var Grid = require('react-bootstrap/lib/Grid');
+var Button = require('react-bootstrap/lib/Button');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -37,7 +38,7 @@ class ExpressSampleApp extends React.Component {
             <Route exact path='/employees/:id([0-9]+)' component={EmployeeDetail} />
             <Route exact path="/employees/new" component={EmployeeNew} />
             <Route exact path="/employees/:id([0-9]+)/edit" component={EmployeeEdit} />
-            <Link to="/employees/new">New</Link>
+            <Link to="/employees/new"><Button>New</Button></Link>
           </Grid>
         </span>
       </BrowserRouter>

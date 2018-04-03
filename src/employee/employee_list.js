@@ -3,7 +3,6 @@ var Table = require('react-bootstrap/lib/Table');
 var Button = require('react-bootstrap/lib/Button');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var FormControl = require('react-bootstrap/lib/FormControl');
-var ControlLabel = require('react-bootstrap/lib/ControlLabel');
 
 var React = require('react');
 var rrd = require('react-router-dom');
