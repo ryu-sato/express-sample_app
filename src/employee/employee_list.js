@@ -1,3 +1,9 @@
+require('bootstrap/dist/css/bootstrap.min.css');
+var Table = require('react-bootstrap/lib/Table');
+var Button = require('react-bootstrap/lib/Button');
+var FormGroup = require('react-bootstrap/lib/FormGroup');
+var FormControl = require('react-bootstrap/lib/FormControl');
+
 var React = require('react');
 var rrd = require('react-router-dom');
 var Link = rrd.Link;
@@ -11,6 +17,7 @@ class EmployeeList extends React.Component {
     };
 
     this.loadEmployeeList = this.loadEmployeeList.bind(this);
+    this.handleDeleteButton = this.handleDeleteButton.bind(this);
   }
 
   loadEmployeeList() {
@@ -24,6 +31,17 @@ class EmployeeList extends React.Component {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  handleDeleteButton(employee_id) {
+    return fetch(`/_api/employees/${employee_id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      var index = this.state.employees.find(e => e.id == employee_id);
+      var newEmployees = this.state.employees;
+      newEmployees.splice(index, 1);
+      this.setState({ employees: newEmployees });
+    });
   }
 
   componentWillMount() {
@@ -40,19 +58,14 @@ class EmployeeList extends React.Component {
         <td>{employee.department}</td>
         <td>{employee.gender}</td>
         <td>
-          <Link to={`/employees/${employee.id}/edit`}><button>Edit</button></Link>
-          <form action={'/_api/employees/' + employee.id + '?_method=DELETE'} method='post'>
-            { /* cf. https://qiita.com/ozhaan/items/c1e394226c1d5acb7f0e */ }
-            <input name="_method" type="hidden" value="DELETE" readOnly />
-            <input name="id" type="hidden" value={employee.id} readOnly />
-            <input type="submit" value="Delete" />
-          </form>
+          <Link to={`/employees/${employee.id}/edit`}><Button>Edit</Button></Link>
+          <Button bsStyle="danger" onClick={() => this.handleDeleteButton(employee.id)}>Delete</Button>
         </td>
       </tr>
     );
 
     return(
-      <table>
+      <Table responsive>
         <thead>
           <tr>
             <th>ID</th>
@@ -65,7 +78,7 @@ class EmployeeList extends React.Component {
         <tbody>
           {employee_list}
         </tbody>
-      </table>
+      </Table>
     );
   }
 }

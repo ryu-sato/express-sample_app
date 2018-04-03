@@ -1,3 +1,7 @@
+require('bootstrap/dist/css/bootstrap.min.css');
+var ListGroup = require('react-bootstrap/lib/ListGroup');
+var ListGroupItem = require('react-bootstrap/lib/ListGroupItem');
+
 var React = require('react');
 
 class EmployeeDetail extends React.Component {
@@ -36,14 +40,13 @@ class EmployeeDetail extends React.Component {
       } }
     );
     return (
-      <dl>
+      <ListGroup>
         {attributes_array.reduce((accumulator, attr, idx) => {
           return accumulator.concat([
-            <dt key={`attrname-${idx}`}>{attr.name}</dt>,
-            <dd key={`attrval-${idx}`}>{attr.val}</dd>
+            <ListGroupItem key={idx} header={attr.name}>{attr.val}</ListGroupItem >,
           ]);
         },[])}
-      </dl>
+      </ListGroup>
     );
   }
 }

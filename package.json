@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "bootstrap": "3",
     "cookie-parser": "~1.4.3",
     "create-react-app": "^1.5.2",
     "debug": "~2.6.9",
@@ -18,6 +19,7 @@
     "mysql2": "^1.5.2",
     "pug": "2.0.0-beta11",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1",
