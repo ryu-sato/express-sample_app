@@ -11,7 +11,7 @@ var db        = {};
 // Set config for Heroku DB
 //   ref. https://github.com/iwazaru/sequelize-heroku/blob/master/index.js
 if (process.env.DATABASE_URL) {
-  match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);  // https://regex101.com/r/IcDEk9/1
+  var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);  // https://regex101.com/r/IcDEk9/1
   config = {
     username: match[1],
     password: match[2],
