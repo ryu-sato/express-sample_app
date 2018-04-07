@@ -17,7 +17,7 @@ if (process.env.DATABASE_URL) {
     password: match[2],
     database: match[5],
     options: {
-        dialect: 'pg',
+        dialect: 'postgres',
         protocol: 'postgres',
         host: match[3],
         logging: false,
