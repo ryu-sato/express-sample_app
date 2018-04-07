@@ -9,6 +9,8 @@ var methodOverride = require('method-override');
 var index = require('./routes/index');
 var api = require('./routes/api');
 
+var port = process.env.PORT || 3000
+
 var server = express();
 
 // uncomment after placing your favicon in /public
@@ -59,9 +61,9 @@ server.get('*', (req, res) => {
   return handle(req, res);
 })
 
-server.listen(80, (err) => {
+server.listen(port, (err) => {
   if (err) throw err
-  console.log('> Ready on http://localhost')
+  console.log(`> Ready on http://localhost:${port}`)
 })
 
 module.exports = server;
