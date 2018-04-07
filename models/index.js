@@ -8,25 +8,6 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/sequelize.js')[env];
 var db        = {};
 
-// Set config for Heroku DB
-//   ref. https://github.com/iwazaru/sequelize-heroku/blob/master/index.js
-if (process.env.DATABASE_URL) {
-  var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);  // https://regex101.com/r/IcDEk9/1
-  config = {
-    username: match[1],
-    password: match[2],
-    database: match[5],
-    dialect: 'postgres',
-    host: match[3],
-    port: match[4],
-    protocol: 'postgres',
-    logging: false,
-      dialectOptions: {
-          ssl: true
-      }
-  };
-}
-
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
