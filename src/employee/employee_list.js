@@ -1,8 +1,6 @@
 require('bootstrap/dist/css/bootstrap.min.css');
 var Table = require('react-bootstrap/lib/Table');
 var Button = require('react-bootstrap/lib/Button');
-var FormGroup = require('react-bootstrap/lib/FormGroup');
-var FormControl = require('react-bootstrap/lib/FormControl');
 
 var React = require('react');
 var rrd = require('react-router-dom');
@@ -37,7 +35,7 @@ class EmployeeList extends React.Component {
     return fetch(`/_api/employees/${employee_id}`, {
       method: 'DELETE'
     }).then(response => {
-      var index = this.state.employees.find(e => e.id == employee_id);
+      var index = this.state.employees.find(e => e.id === employee_id);
       var newEmployees = this.state.employees;
       newEmployees.splice(index, 1);
       this.setState({ employees: newEmployees });
