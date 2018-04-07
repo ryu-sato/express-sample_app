@@ -16,16 +16,14 @@ if (process.env.DATABASE_URL) {
     username: match[1],
     password: match[2],
     database: match[5],
-    options: {
-        dialect: 'postgres',
-        protocol: 'postgres',
-        host: match[3],
-        logging: false,
-        port: match[4],
-        dialectOptions: {
-            ssl: true
-        }
-    }
+    dialect: 'postgres',
+    host: match[3],
+    port: match[4],
+    protocol: 'postgres',
+    logging: false,
+      dialectOptions: {
+          ssl: true
+      }
   };
 }
 
