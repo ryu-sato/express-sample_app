@@ -19,7 +19,6 @@
     "express-react-views": "^0.10.5",
     "method-override": "^2.3.10",
     "morgan": "~1.9.0",
-    "mysql2": "^1.5.2",
     "pg": "^7.4.1",
     "pug": "2.0.0-beta11",
     "react": "^16.2.0",
@@ -30,5 +29,8 @@
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "mysql2": "^1.5.3"
   }
 }
