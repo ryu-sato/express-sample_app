@@ -9,6 +9,8 @@ var methodOverride = require('method-override');
 var index = require('./routes/index');
 var api = require('./routes/api');
 
+// In Heroku, $PORT environment is set.
+//   ref. https://github.com/heroku/node-js-getting-started/blob/787a0397af4e2a295607cced85aa882931c18d3d/index.js#L3
 var port = process.env.PORT || 3000
 
 var server = express();
