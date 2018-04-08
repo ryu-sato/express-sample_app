@@ -2,6 +2,8 @@
 
 Express 勉強用の Sample Application。
 
+[デモサイト](https://ryu-sato-express-sample-app.herokuapp.com/)
+
 ## 利用するフレームワークやプラットフォームへの公式ページリンク
 
 - Express
@@ -35,9 +37,24 @@ Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js
 > npm run start
 ```
 
+# DBマイグレーション
+
+## 事前作業
+
+- DB 接続設定を /config/sequelize.js にて行う
+
+## 実施コマンド
+
+```
+> .\node_modules\sequelize db:migrate
+> .\node_modules\sequelize db:seed:all
+```
+
+サンプルデータを投入コマンド `db:seed:all` は必要に応じて実施する。
+
 # TODO
 
 - [ ] i18n
 - [ ] validation
 - [x] React結合
-- [ ] bootstrap利用
+- [x] bootstrap利用
