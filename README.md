@@ -46,8 +46,8 @@ $ npm run start
 ## 実施コマンド
 
 ```
-$ ./node_modules/sequelize db:migrate
-$ ./node_modules/sequelize db:seed:all
+$ yarn run sequelize db:migrate
+$ yarn run sequelize db:seed:all
 ```
 
 サンプルデータを投入コマンド `db:seed:all` は必要に応じて実施する。
