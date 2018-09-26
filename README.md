@@ -20,7 +20,7 @@ Express 勉強用の Sample Application。
 ## 初回起動
 
 動作させるためには、事前に Node.js, Yarn をインストールしておく必要がある。
-Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js をインストールする場合は、`% nodist global 8` を実行し、[Yarn](https://yarnpkg.com/lang/ja/docs/install/) はインストーラを実行する。
+Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js をインストールする場合は、`$ nodist global 8` を実行し、[Yarn](https://yarnpkg.com/lang/ja/docs/install/) はインストーラを実行する。
 
 ```shell
 $ git clone https://github.com/ryu-sato/express-sample_app.git
