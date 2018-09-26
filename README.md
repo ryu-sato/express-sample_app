@@ -22,11 +22,11 @@ Express 勉強用の Sample Application。
 動作させるためには、事前に Node.js, Yarn をインストールしておく必要がある。
 Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js をインストールする場合は、`% nodist global 8` を実行し、[Yarn](https://yarnpkg.com/lang/ja/docs/install/) はインストーラを実行する。
 
-```cmd
-> git clone https://github.com/ryu-sato/express-sample_app.git
-> cd express-sample_app
-> yarn
-> npm run start
+```shell
+$ git clone https://github.com/ryu-sato/express-sample_app.git
+$ cd express-sample_app
+$ yarn
+$ npm run start
 ```
 
 ## 毎回起動
@@ -34,7 +34,7 @@ Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js
 ※アプリの修正が行われていない前提。開発者向けの情報は未整備。
 
 ```
-> npm run start
+$ npm run start
 ```
 
 # DBマイグレーション
@@ -46,8 +46,8 @@ Windows ユーザが [nodist](https://github.com/marcelklehr/nodist) で Node.js
 ## 実施コマンド
 
 ```
-> .\node_modules\sequelize db:migrate
-> .\node_modules\sequelize db:seed:all
+$ ./node_modules/sequelize db:migrate
+$ ./node_modules/sequelize db:seed:all
 ```
 
 サンプルデータを投入コマンド `db:seed:all` は必要に応じて実施する。
