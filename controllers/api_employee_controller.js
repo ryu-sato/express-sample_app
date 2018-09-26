@@ -1,4 +1,4 @@
-var models = require('../models');
+var models = require('../db/models');
 
 /**
  * show all employee list

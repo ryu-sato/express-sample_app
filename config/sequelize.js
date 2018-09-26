@@ -35,8 +35,8 @@ module.exports = {
     username: "root",
     password: null,
     database: "express_sample_database_development",
-    host: "127.0.0.1",
-    dialect: "mysql"
+    dialect: "sqlite",
+    storage: "./sqlite-dev.db"
   },
   test: {
     username: "root",
