@@ -6,8 +6,14 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "npm run build",
-    "build": "react-scripts build",
-    "start": "node server.js"
+    "//": "react-scripts の webpack を使うため敢えて production 環境を dev 環境で利用している",
+    "build:dev": "npm run clean:build && env-cmd config/env.prod.js webpack --config node_modules/react-scripts/config/webpack.config.prod.js --watch",
+    "build:prod": "react-scripts build",
+    "build": "npm run build:prod",
+    "clean:build": "rimraf ./build",
+    "server:dev": "node-dev server.js",
+    "server:prod": "node server.js",
+    "start": "npm run server:prod"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -15,8 +21,8 @@
     "cookie-parser": "^1.4.3",
     "create-react-app": "^1.5.2",
     "debug": "~2.6.9",
+    "env-cmd": "^8.0.2",
     "express": "^4.15.5",
-    "express-react-views": "^0.10.5",
     "method-override": "^2.3.10",
     "morgan": "~1.9.0",
     "pg": "^7.4.1",
@@ -26,11 +32,13 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1",
+    "rimraf": "^2.6.2",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
     "serve-favicon": "^2.4.5"
   },
   "devDependencies": {
+    "node-dev": "^3.1.3",
     "sqlite3": "^4.0.2"
   },
   "engines": {
