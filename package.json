@@ -11,7 +11,7 @@
     "build:prod": "react-scripts build",
     "build": "npm run build:prod",
     "clean:build": "rimraf ./build",
-    "server:dev": "node-dev server.js",
+    "server:dev": "env-cmd config/env.dev.js node-dev server.js",
     "server:prod": "node server.js",
     "start": "npm run server:prod"
   },
