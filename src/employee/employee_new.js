@@ -1,5 +1,5 @@
-var React = require('react');
-var EmployeeForm = require('./_employee_form');
+import React from 'react';
+import EmployeeForm from './_employee_form';
 
 class EmployeeNew extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class EmployeeNew extends React.Component {
   }
 
   handleChangeField(e) {
-    var employee = this.state.employee;
+    let employee = this.state.employee;
     employee[e.target.name] = e.target.value;
     this.setState({
       employee: employee
@@ -29,4 +29,4 @@ class EmployeeNew extends React.Component {
   }
 }
 
-module.exports = EmployeeNew;
+export default EmployeeNew;

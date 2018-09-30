@@ -1,10 +1,7 @@
-require('bootstrap/dist/css/bootstrap.min.css');
-var Table = require('react-bootstrap/lib/Table');
-var Button = require('react-bootstrap/lib/Button');
+import { Table, Button } from 'reactstrap';
 
-var React = require('react');
-var rrd = require('react-router-dom');
-var Link = rrd.Link;
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Employee一覧レンダリング用コンポーネント
 class EmployeeList extends React.Component {
@@ -35,9 +32,7 @@ class EmployeeList extends React.Component {
     return fetch(`/_api/employees/${employee_id}`, {
       method: 'DELETE'
     }).then(response => {
-      var index = this.state.employees.find(e => e.id === employee_id);
-      var newEmployees = this.state.employees;
-      newEmployees.splice(index, 1);
+      const newEmployees = this.state.employees.filter(e => e.id !== employee_id);
       this.setState({ employees: newEmployees });
     });
   }
@@ -56,8 +51,8 @@ class EmployeeList extends React.Component {
         <td>{employee.department}</td>
         <td>{employee.gender}</td>
         <td>
-          <Link to={`/employees/${employee.id}/edit`}><Button>Edit</Button></Link>
-          <Button bsStyle="danger" onClick={() => this.handleDeleteButton(employee.id)}>Delete</Button>
+          <Link to={`/employees/${employee.id}/edit`}><Button outline>Edit</Button></Link>
+          <Button outline color="danger" onClick={() => this.handleDeleteButton(employee.id)}>Delete</Button>
         </td>
       </tr>
     );
@@ -81,4 +76,4 @@ class EmployeeList extends React.Component {
   }
 }
 
-module.exports = EmployeeList;
+export default EmployeeList;

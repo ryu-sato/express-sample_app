@@ -1,22 +1,27 @@
-var React = require('react');
-
-var FormGroup = require('react-bootstrap/lib/FormGroup');
-var ControlLabel = require('react-bootstrap/lib/ControlLabel');
-var FormControl = require('react-bootstrap/lib/FormControl');
-var HelpBlock = require('react-bootstrap/lib/HelpBlock');
-var Radio = require('react-bootstrap/lib/Radio');
-var Button = require('react-bootstrap/lib/Button');
+import React from 'react';
+import {
+  Form,
+  FormGroup,
+  FormText,
+  Label,
+  Input,
+  CustomInput,
+  Button,
+  Col } from 'reactstrap';
 
 class FieldGroup extends React.Component {
   render() {
-    var id = this.props.id;
-    var label = this.props.label;
-    var help = this.props.help;
+    const id = this.props.id;
+    const label = this.props.label;
+    const help = this.props.help;
+    const name = this.props.name;
     return(
-      <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
-        <FormControl {...this.props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+      <FormGroup row>
+        <Label for={name} sm={3}>{label}</Label>
+        <div>
+          <CustomInput {...this.props} />
+          {help && <FormText color="muted">{help}</FormText>}
+        </div>
       </FormGroup>
     );
   }
@@ -35,11 +40,27 @@ class EmployeeForm extends React.Component {
         {id}
         <FieldGroup id="name" label="Name" help="" type="text" name='name' value={employee.name} placeholder="Input Employee's Name" onChange={cb} />
         <FieldGroup id="Department" label="Department" help="" type="text" name='department' value={employee.department} placeholder="" onChange={cb} />
-        <FormGroup controlId="Gender">
-          <ControlLabel>Gender</ControlLabel>
-          <Radio name="gender" inline defaultValue='male' checked={employee.gender==="male"} onChange={cb}>male</Radio>
-          <Radio name="gender" inline defaultValue='female' checked={employee.gender==="female"}  onChange={cb}>female</Radio>
-          <Radio name="gender" inline defaultValue='other' checked={employee.gender!=="male"&&employee.gender!=="female"} onChange={cb}>other</Radio>
+        <FormGroup tag="fieldset" row>
+          <Col sm={3}>
+            <Label>Gender</Label>
+          </Col>
+          <Col>
+            <FormGroup check inline>
+              <Label>
+                <Input type="radio" name="gender" inline defaultValue='male' checked={employee.gender==="male"} onChange={cb} />male
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label>
+                <Input type="radio" name="gender" inline defaultValue='female' checked={employee.gender==="female"}  onChange={cb} />female
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label>
+                <Input type="radio" name="gender" inline defaultValue='other' checked={employee.gender!=="male"&&employee.gender!=="female"} onChange={cb} />other
+              </Label>
+            </FormGroup>
+          </Col>
         </FormGroup>
         <FieldGroup id="Birthday" label="Birthday" help="" type="text" name='birth' value={employee.birth} placeholder="Input Employee's Birthday" onChange={cb} />
         <FieldGroup id="Joined Date" label="Joined Date" help="" type="text" name='joined_date' value={employee.joined_date} placeholder="Input Employee's Joined Date" onChange={cb} />
@@ -51,4 +72,4 @@ class EmployeeForm extends React.Component {
   }
 }
 
-module.exports = EmployeeForm;
+export default EmployeeForm;

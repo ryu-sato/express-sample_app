@@ -1,8 +1,5 @@
-require('bootstrap/dist/css/bootstrap.min.css');
-var ListGroup = require('react-bootstrap/lib/ListGroup');
-var ListGroupItem = require('react-bootstrap/lib/ListGroupItem');
-
-var React = require('react');
+import React from 'react';
+import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
 
 class EmployeeDetail extends React.Component {
   constructor(props) {
@@ -33,22 +30,24 @@ class EmployeeDetail extends React.Component {
   }
 
   render() {
-    const attributes_array = ["name", "department", "gender", "birth", "joined_date", "payment", "note"].map((attr) =>
-      { return {
-        name: attr,
-        val: this.state.employee[attr] ? this.state.employee[attr].toString() : '...loading'
-      } }
-    );
-    return (
-      <ListGroup>
-        {attributes_array.reduce((accumulator, attr, idx) => {
-          return accumulator.concat([
-            <ListGroupItem key={idx} header={attr.name}>{attr.val}</ListGroupItem >,
-          ]);
-        },[])}
-      </ListGroup>
-    );
+    const attributes_array = !this.state.employee ? null
+      : ["name", "department", "gender", "birth", "joined_date", "payment", "note"].map((attr) =>
+          { return {
+            name: attr,
+            val: this.state.employee[attr] ? this.state.employee[attr] : "-"
+          } }
+        );
+    const attributes_dom = attributes_array === null ? "... loading"
+      : <ListGroup>
+          {attributes_array.reduce((accumulator, attr, idx) => {
+            return accumulator.concat([
+              <ListGroupItem className="d-flex justify-content-between align-items-center" key={idx} header={attr.name}>{attr.val} <Badge pill>{attr.name}</Badge></ListGroupItem>,
+            ]);
+          },[])}
+        </ListGroup>
+
+    return (attributes_dom);
   }
 }
 
-module.exports = EmployeeDetail;
+export default EmployeeDetail;
