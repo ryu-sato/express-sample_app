@@ -9,7 +9,6 @@
     "build:dev": "react-scripts start",
     "build:prod": "react-scripts build",
     "build": "npm run build:prod",
-    "clean:build": "rimraf ./build",
     "server:dev": "env-cmd config/env.dev.js node-dev server.js",
     "server:prod": "env-cmd config/env.prod.js node server.js",
     "start": "npm run server:prod"
@@ -31,7 +30,6 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1",
     "reactstrap": "^6.4.0",
-    "rimraf": "^2.6.2",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
     "serve-favicon": "^2.4.5"
