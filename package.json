@@ -6,13 +6,12 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "npm run build",
-    "//": "react-scripts の webpack を使うため敢えて production 環境を dev 環境で利用している",
-    "build:dev": "npm run clean:build && env-cmd config/env.prod.js webpack --config node_modules/react-scripts/config/webpack.config.prod.js --watch",
+    "build:dev": "react-scripts start",
     "build:prod": "react-scripts build",
     "build": "npm run build:prod",
     "clean:build": "rimraf ./build",
     "server:dev": "env-cmd config/env.dev.js node-dev server.js",
-    "server:prod": "node server.js",
+    "server:prod": "env-cmd config/env.prod.js node server.js",
     "start": "npm run server:prod"
   },
   "dependencies": {
@@ -45,5 +44,7 @@
     "node": ">= 8.11.3 <9",
     "npm": ">= 5.6.0 <6",
     "yarn": ">= 1.5.1 <2"
-  }
+  },
+  "//": "react-scriptsにおいてHTTP HEADERのAcceptがtext/htmlであるリクエストをプロクシする先のサーバ",
+  "proxy": "http://localhost:3010"
 }
