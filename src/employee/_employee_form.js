@@ -19,7 +19,7 @@ class FieldGroup extends React.Component {
       <FormGroup row>
         <Label for={name} sm={3}>{label}</Label>
         <div>
-          <CustomInput {...this.props} />
+          <Input {...this.props} />
           {help && <FormText color="muted">{help}</FormText>}
         </div>
       </FormGroup>
@@ -66,7 +66,7 @@ class EmployeeForm extends React.Component {
         <FieldGroup id="Joined Date" label="Joined Date" help="" type="text" name='joined_date' value={employee.joined_date} placeholder="Input Employee's Joined Date" onChange={cb} />
         <FieldGroup id="Payment" label="Payment" help="" type="text" name='payment' value={employee.payment} placeholder="Input Employee's Payment" onChange={cb} />
         <FieldGroup id="Note" label="Note" help="" type="text" name='note' value={employee.note} placeholder="Input Note" onChange={cb} />
-        <Button type="submit" value="Submit">Submit</Button>
+        <Button outline type="submit" value="Submit">Submit</Button>
       </form>
     );
   }

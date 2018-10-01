@@ -56,14 +56,14 @@ class ExpressSampleApp extends React.Component {
           </Navbar>
           <Container>
             <Row>
-              <Col xs="7"><Route exact path="/" component={Home} /></Col>
-              <Col xs="7"><Route exact path="/employees" component={EmployeeList} /></Col>
-              <Col xs="7"><Route exact path='/employees/:id([0-9]+)' component={EmployeeDetail} /></Col>
-              <Col xs="7"><Route exact path="/employees/new" component={EmployeeNew} /></Col>
-              <Col xs="7"><Route exact path="/employees/:id([0-9]+)/edit" component={EmployeeEdit} /></Col>
+              <Col xs="12"><Route exact path="/" component={Home} /></Col>
+              <Col xs="12"><Route exact path="/employees" component={EmployeeList} /></Col>
+              <Col xs="12"><Route exact path='/employees/:id([0-9]+)' component={EmployeeDetail} /></Col>
+              <Col xs="12"><Route exact path="/employees/new" component={EmployeeNew} /></Col>
+              <Col xs="12"><Route exact path="/employees/:id([0-9]+)/edit" component={EmployeeEdit} /></Col>
             </Row>
             <Row>
-              <Col><Link to="/employees/new"><Button>New</Button></Link></Col>
+              <Col><Link to="/employees/new"><Button outline>New</Button></Link></Col>
             </Row>
           </Container>
         </span>
