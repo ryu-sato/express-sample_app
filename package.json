@@ -11,7 +11,8 @@
     "build": "npm run build:prod",
     "server:dev": "env-cmd config/env.dev.js node-dev server.js",
     "server:prod": "env-cmd config/env.prod.js node server.js",
-    "start": "npm run server:prod"
+    "start": "npm run server:prod",
+    "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

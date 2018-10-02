@@ -1,17 +1,14 @@
 import React from 'react';
 import {
-  Form,
   FormGroup,
   FormText,
   Label,
   Input,
-  CustomInput,
   Button,
   Col } from 'reactstrap';
 
 class FieldGroup extends React.Component {
   render() {
-    const id = this.props.id;
     const label = this.props.label;
     const help = this.props.help;
     const name = this.props.name;
