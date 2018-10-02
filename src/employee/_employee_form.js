@@ -47,17 +47,17 @@ class EmployeeForm extends React.Component {
           <Col>
             <FormGroup check inline>
               <Label>
-                <Input type="radio" name="gender" inline defaultValue='male' checked={employee.gender==="male"} onChange={cb} />male
+                <Input type="radio" name="gender" defaultValue='male' checked={employee.gender==="male"} onChange={cb} />male
               </Label>
             </FormGroup>
             <FormGroup check inline>
               <Label>
-                <Input type="radio" name="gender" inline defaultValue='female' checked={employee.gender==="female"}  onChange={cb} />female
+                <Input type="radio" name="gender" defaultValue='female' checked={employee.gender==="female"}  onChange={cb} />female
               </Label>
             </FormGroup>
             <FormGroup check inline>
               <Label>
-                <Input type="radio" name="gender" inline defaultValue='other' checked={employee.gender!=="male"&&employee.gender!=="female"} onChange={cb} />other
+                <Input type="radio" name="gender" defaultValue='other' checked={employee.gender!=="male"&&employee.gender!=="female"} onChange={cb} />other
               </Label>
             </FormGroup>
           </Col>
