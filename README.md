@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ryu-sato/express-sample_app/tree/master.svg?style=shield)](https://circleci.com/gh/ryu-sato/express-sample_app/tree/master)
+
 # Express Sample Application 概要
 
 Express 勉強用の Sample Application。
