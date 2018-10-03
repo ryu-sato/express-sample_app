@@ -59,7 +59,7 @@ class EmployeeList extends React.Component {
 
     return(
       <Table responsive>
-        <thead>
+        <thead
           <tr>
             <th>ID</th>
             <th>Name</th>
