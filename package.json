@@ -40,9 +40,9 @@
     "sqlite3": "^4.0.2"
   },
   "engines": {
-    "node": ">= 8.11.3 <9",
-    "npm": ">= 5.6.0 <6",
-    "yarn": ">= 1.5.1 <2"
+    "node": ">= 8.12.0 <9",
+    "npm": ">= 6.4.1 <7",
+    "yarn": ">= 1.9.4 <2"
   },
   "//": "react-scriptsにおいてHTTP HEADERのAcceptがtext/htmlであるリクエストをプロクシする先のサーバ",
   "proxy": "http://localhost:3010"
