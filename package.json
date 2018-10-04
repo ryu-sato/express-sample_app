@@ -6,8 +6,8 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "npm run build",
-    "build:dev": "react-scripts start",
-    "build:prod": "react-scripts build",
+    "build:dev": "env-cmd config/env.dev.js react-scripts start",
+    "build:prod": "env-cmd config/env.prod.js react-scripts build",
     "build": "npm run build:prod",
     "server:dev": "env-cmd config/env.dev.js node-dev server.js",
     "server:prod": "env-cmd config/env.prod.js node server.js",
