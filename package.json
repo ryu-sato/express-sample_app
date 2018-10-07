@@ -26,10 +26,8 @@
     "morgan": "~1.9.0",
     "pg": "^7.4.1",
     "pug": "^2.0.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.1.1",
+    "react-scripts": "^2.0.4",
     "reactstrap": "^6.4.0",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
@@ -37,6 +35,8 @@
   },
   "devDependencies": {
     "node-dev": "^3.1.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "sqlite3": "^4.0.2"
   },
   "engines": {
@@ -45,5 +45,11 @@
     "yarn": ">= 1.9.4 <2"
   },
   "//": "react-scriptsにおいてHTTP HEADERのAcceptがtext/htmlであるリクエストをプロクシする先のサーバ",
-  "proxy": "http://localhost:3010"
+  "proxy": "http://localhost:3010",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
